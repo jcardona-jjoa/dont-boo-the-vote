@@ -9,8 +9,11 @@
   // Option B support: ?c=<slug> goes straight to that chapter's PDF.
   (function () {
     var CHAPTERS = [{"name": "Bloomington-Normal", "slug": "bloomington-normal"}, {"name": "Central Missouri", "slug": "central-missouri"}, {"name": "Denver", "slug": "denver"}, {"name": "Des Moines", "slug": "des-moines"}, {"name": "East St. Louis", "slug": "east-st-louis"}, {"name": "Greater Champaign-Urbana", "slug": "greater-champaign-urbana"}, {"name": "Greater Little Rock", "slug": "greater-little-rock"}, {"name": "Greater Peoria", "slug": "greater-peoria"}, {"name": "Greater Pikes Peak", "slug": "greater-pikes-peak"}, {"name": "Johnson County", "slug": "johnson-county"}, {"name": "Kansas City (KS)", "slug": "kansas-city-ks"}, {"name": "Kansas City (MO)", "slug": "kansas-city-mo"}, {"name": "Northwest Arkansas", "slug": "northwest-arkansas"}, {"name": "Oklahoma City", "slug": "oklahoma-city"}, {"name": "South Suburban Denver", "slug": "south-suburban-denver"}, {"name": "St. Clair County", "slug": "st-clair-county"}, {"name": "Tulsa", "slug": "tulsa"}, {"name": "Alexandria-Mt. Vernon", "slug": "alexandria-mt-vernon"}, {"name": "Arundel Bay Area", "slug": "arundel-bay-area"}, {"name": "Atlantic City", "slug": "atlantic-city"}, {"name": "Baltimore", "slug": "baltimore"}, {"name": "Bergen-Passaic", "slug": "bergen-passaic"}, {"name": "Boston", "slug": "boston"}, {"name": "Bronx", "slug": "bronx"}, {"name": "Brooklyn", "slug": "brooklyn"}, {"name": "Bucks County", "slug": "bucks-county"}, {"name": "Buffalo", "slug": "buffalo"}, {"name": "Burke-Fairfax", "slug": "burke-fairfax"}, {"name": "Burlington County", "slug": "burlington-county"}, {"name": "Central New Jersey", "slug": "central-new-jersey"}, {"name": "Chester County", "slug": "chester-county"}, {"name": "Columbia (MD)", "slug": "columbia-md"}, {"name": "Eastern Fairfield County", "slug": "eastern-fairfield-county"}, {"name": "Empire", "slug": "empire"}, {"name": "Essex-Hudson", "slug": "essex-hudson"}, {"name": "Greater Albany", "slug": "greater-albany"}, {"name": "Greater Baltimore County", "slug": "greater-baltimore-county"}, {"name": "Greater Essex County", "slug": "greater-essex-county"}, {"name": "Greater Hartford", "slug": "greater-hartford"}, {"name": "Greater Pocono", "slug": "greater-pocono"}, {"name": "Greater Suburban Maryland", "slug": "greater-suburban-maryland"}, {"name": "Greater Union County", "slug": "greater-union-county"}, {"name": "Jersey Shore", "slug": "jersey-shore"}, {"name": "Loudoun County", "slug": "loudoun-county"}, {"name": "Manassas-Woodbridge", "slug": "manassas-woodbridge"}, {"name": "Mercer County", "slug": "mercer-county"}, {"name": "Metropolitan", "slug": "metropolitan"}, {"name": "Mid-Hudson Valley", "slug": "mid-hudson-valley"}, {"name": "Montgomery County (MD)", "slug": "montgomery-county-md"}, {"name": "Montgomery County (PA)", "slug": "montgomery-county-pa"}, {"name": "Morris County", "slug": "morris-county"}, {"name": "Nassau County", "slug": "nassau-county"}, {"name": "National Harbor", "slug": "national-harbor"}, {"name": "Nation’s Capital", "slug": "nations-capital"}, {"name": "New Castle County", "slug": "new-castle-county"}, {"name": "New Haven", "slug": "new-haven"}, {"name": "Newton", "slug": "newton"}, {"name": "North Jersey", "slug": "north-jersey"}, {"name": "Northern Virginia", "slug": "northern-virginia"}, {"name": "Philadelphia", "slug": "philadelphia"}, {"name": "Pittsburgh", "slug": "pittsburgh"}, {"name": "Potomac Valley", "slug": "potomac-valley"}, {"name": "Prince George’s County", "slug": "prince-georges-county"}, {"name": "Prince William County", "slug": "prince-william-county"}, {"name": "Queens", "slug": "queens"}, {"name": "Reston", "slug": "reston"}, {"name": "Rochester", "slug": "rochester"}, {"name": "Rockland-Orange County", "slug": "rockland-orange-county"}, {"name": "South Jersey", "slug": "south-jersey"}, {"name": "Southern Maryland", "slug": "southern-maryland"}, {"name": "Stamford-Norwalk", "slug": "stamford-norwalk"}, {"name": "Staten Island", "slug": "staten-island"}, {"name": "Suffolk County", "slug": "suffolk-county"}, {"name": "Syracuse", "slug": "syracuse"}, {"name": "Washington, DC", "slug": "washington-dc"}, {"name": "Westchester County", "slug": "westchester-county"}, {"name": "Western Maryland", "slug": "western-maryland"}, {"name": "Western Massachusetts", "slug": "western-massachusetts"}, {"name": "Anchorage", "slug": "anchorage"}, {"name": "Contra Costa County", "slug": "contra-costa-county"}, {"name": "Fresno", "slug": "fresno"}, {"name": "Greater Vallejo", "slug": "greater-vallejo"}, {"name": "Inglewood", "slug": "inglewood"}, {"name": "Inland Empire", "slug": "inland-empire"}, {"name": "Las Vegas", "slug": "las-vegas"}, {"name": "Long Beach", "slug": "long-beach"}, {"name": "Los Angeles", "slug": "los-angeles"}, {"name": "North County San Diego", "slug": "north-county-san-diego"}, {"name": "Oakland Bay Area", "slug": "oakland-bay-area"}, {"name": "Orange County", "slug": "orange-county"}, {"name": "Pasadena", "slug": "pasadena"}, {"name": "Phoenix", "slug": "phoenix"}, {"name": "Pomona Area", "slug": "pomona-area"}, {"name": "Portland-Willamette Valley", "slug": "portland-willamette-valley"}, {"name": "Sacramento", "slug": "sacramento"}, {"name": "San Diego", "slug": "san-diego"}, {"name": "San Fernando Valley", "slug": "san-fernando-valley"}, {"name": "San Francisco", "slug": "san-francisco"}, {"name": "San Jose", "slug": "san-jose"}, {"name": "Santa Clarita/Antelope Valley", "slug": "santa-clarita-antelope-valley"}, {"name": "Seattle", "slug": "seattle"}, {"name": "South Los Angeles", "slug": "south-los-angeles"}, {"name": "Sun Valley", "slug": "sun-valley"}, {"name": "Tacoma", "slug": "tacoma"}, {"name": "Tri-Valley", "slug": "tri-valley"}, {"name": "Tucson", "slug": "tucson"}, {"name": "West Los Angeles", "slug": "west-los-angeles"}, {"name": "Aiken County", "slug": "aiken-county"}, {"name": "Burlington-Graham", "slug": "burlington-graham"}, {"name": "Capital City", "slug": "capital-city"}, {"name": "Charleston", "slug": "charleston"}, {"name": "Charlotte", "slug": "charlotte"}, {"name": "Chesapeake", "slug": "chesapeake"}, {"name": "Columbia (SC)", "slug": "columbia-sc"}, {"name": "Conway", "slug": "conway"}, {"name": "Durham", "slug": "durham"}, {"name": "East Wake-Johnston", "slug": "east-wake-johnston"}, {"name": "Eastern North Carolina", "slug": "eastern-north-carolina"}, {"name": "Fayetteville", "slug": "fayetteville"}, {"name": "Florence", "slug": "florence"}, {"name": "Gastonia-Piedmont", "slug": "gastonia-piedmont"}, {"name": "Greater Chapel Hill", "slug": "greater-chapel-hill"}, {"name": "Greater Fredericksburg", "slug": "greater-fredericksburg"}, {"name": "Greensboro", "slug": "greensboro"}, {"name": "Greenville", "slug": "greenville"}, {"name": "Hampton", "slug": "hampton"}, {"name": "James River", "slug": "james-river"}, {"name": "Midlothian", "slug": "midlothian"}, {"name": "Norfolk", "slug": "norfolk"}, {"name": "Orangeburg", "slug": "orangeburg"}, {"name": "Portsmouth", "slug": "portsmouth"}, {"name": "Queen City", "slug": "queen-city"}, {"name": "Raleigh Wake", "slug": "raleigh-wake"}, {"name": "Richmond", "slug": "richmond"}, {"name": "Roanoke Valley", "slug": "roanoke-valley"}, {"name": "South Charlotte", "slug": "south-charlotte"}, {"name": "Spartanburg", "slug": "spartanburg"}, {"name": "Tri-Cities", "slug": "tri-cities"}, {"name": "Upper Palmetto", "slug": "upper-palmetto"}, {"name": "Wilmington", "slug": "wilmington"}, {"name": "Winston-Salem", "slug": "winston-salem"}, {"name": "Akron", "slug": "akron"}, {"name": "Ann Arbor", "slug": "ann-arbor"}, {"name": "Buckeye", "slug": "buckeye"}, {"name": "Central Kentucky", "slug": "central-kentucky"}, {"name": "Chicago", "slug": "chicago"}, {"name": "Cincinnati", "slug": "cincinnati"}, {"name": "Circle City", "slug": "circle-city"}, {"name": "City of Lakes", "slug": "city-of-lakes"}, {"name": "Cleveland", "slug": "cleveland"}, {"name": "Columbus (OH)", "slug": "columbus-oh"}, {"name": "Dayton", "slug": "dayton"}, {"name": "Derby City", "slug": "derby-city"}, {"name": "Detroit", "slug": "detroit"}, {"name": "Erie Shores", "slug": "erie-shores"}, {"name": "Flint", "slug": "flint"}, {"name": "Forest City", "slug": "forest-city"}, {"name": "Gary-Northwest Indiana", "slug": "gary-northwest-indiana"}, {"name": "Great Lakes Bay Region", "slug": "great-lakes-bay-region"}, {"name": "Greater Eastern Michigan", "slug": "greater-eastern-michigan"}, {"name": "Greater Grand Rapids", "slug": "greater-grand-rapids"}, {"name": "Greater Lansing", "slug": "greater-lansing"}, {"name": "Greater Northeast Indiana", "slug": "greater-northeast-indiana"}, {"name": "Indianapolis", "slug": "indianapolis"}, {"name": "Lake Shore", "slug": "lake-shore"}, {"name": "Louisville", "slug": "louisville"}, {"name": "Magnificent Mile", "slug": "magnificent-mile"}, {"name": "Milwaukee", "slug": "milwaukee"}, {"name": "Minneapolis", "slug": "minneapolis"}, {"name": "Monarch Cities", "slug": "monarch-cities"}, {"name": "Motor City", "slug": "motor-city"}, {"name": "North Oakland/Macomb", "slug": "north-oakland-macomb"}, {"name": "North Shore", "slug": "north-shore"}, {"name": "North Suburban Chicago", "slug": "north-suburban-chicago"}, {"name": "Oakland County", "slug": "oakland-county"}, {"name": "South Central Wisconsin", "slug": "south-central-wisconsin"}, {"name": "South Suburban Chicago", "slug": "south-suburban-chicago"}, {"name": "Southwestern Michigan", "slug": "southwestern-michigan"}, {"name": "St. Louis", "slug": "st-louis"}, {"name": "Toledo", "slug": "toledo"}, {"name": "West Suburban Chicago", "slug": "west-suburban-chicago"}, {"name": "Western Cook County", "slug": "western-cook-county"}, {"name": "Will-Kendall", "slug": "will-kendall"}, {"name": "Windy City", "slug": "windy-city"}, {"name": "Youngstown", "slug": "youngstown"}, {"name": "Ypsilanti", "slug": "ypsilanti"}, {"name": "Albuquerque-Santa Fe Metro Area", "slug": "albuquerque-santa-fe-metro-area"}, {"name": "Alexandria", "slug": "alexandria"}, {"name": "Arlington", "slug": "arlington"}, {"name": "Austin", "slug": "austin"}, {"name": "Baton Rouge", "slug": "baton-rouge"}, {"name": "Beaumont", "slug": "beaumont"}, {"name": "Clear Lake/Bay Area", "slug": "clear-lake-bay-area"}, {"name": "Cypress West Houston", "slug": "cypress-west-houston"}, {"name": "Dallas", "slug": "dallas"}, {"name": "DFW Mid-Cities", "slug": "dfw-mid-cities"}, {"name": "El Paso-Southern New Mexico", "slug": "el-paso-southern-new-mexico"}, {"name": "Far North Dallas", "slug": "far-north-dallas"}, {"name": "Fort Worth", "slug": "fort-worth"}, {"name": "Greater Channel", "slug": "greater-channel"}, {"name": "Greater Frisco", "slug": "greater-frisco"}, {"name": "Gulf Coast Brazoria County", "slug": "gulf-coast-brazoria-county"}, {"name": "Hammond-Northshore", "slug": "hammond-northshore"}, {"name": "Houston", "slug": "houston"}, {"name": "Houston Metropolitan", "slug": "houston-metropolitan"}, {"name": "Humble-Kingwood", "slug": "humble-kingwood"}, {"name": "Katy-Prairie View", "slug": "katy-prairie-view"}, {"name": "Louisiana Delta", "slug": "louisiana-delta"}, {"name": "Missouri City-Sugar Land", "slug": "missouri-city-sugar-land"}, {"name": "New Orleans", "slug": "new-orleans"}, {"name": "North Houston Suburban", "slug": "north-houston-suburban"}, {"name": "North Suburban Dallas", "slug": "north-suburban-dallas"}, {"name": "North Texas", "slug": "north-texas"}, {"name": "Northeast Dallas", "slug": "northeast-dallas"}, {"name": "Northeast San Antonio", "slug": "northeast-san-antonio"}, {"name": "Northern Ellis County", "slug": "northern-ellis-county"}, {"name": "Red River", "slug": "red-river"}, {"name": "San Antonio", "slug": "san-antonio"}, {"name": "South Belt Houston", "slug": "south-belt-houston"}, {"name": "Southwest Louisiana", "slug": "southwest-louisiana"}, {"name": "Southwest Suburban Dallas", "slug": "southwest-suburban-dallas"}, {"name": "Sugar Land", "slug": "sugar-land"}, {"name": "The Woodlands", "slug": "the-woodlands"}, {"name": "Waco Central Texas", "slug": "waco-central-texas"}, {"name": "Albany", "slug": "albany"}, {"name": "Athens", "slug": "athens"}, {"name": "Atlanta", "slug": "atlanta"}, {"name": "Augusta", "slug": "augusta"}, {"name": "Birmingham", "slug": "birmingham"}, {"name": "Brevard County", "slug": "brevard-county"}, {"name": "Buckhead Atlanta", "slug": "buckhead-atlanta"}, {"name": "Columbus (GA)", "slug": "columbus-ga"}, {"name": "Daytona Beach Area", "slug": "daytona-beach-area"}, {"name": "Dunwoody-Atlanta", "slug": "dunwoody-atlanta"}, {"name": "East Suburban Atlanta", "slug": "east-suburban-atlanta"}, {"name": "Fayette County Area", "slug": "fayette-county-area"}, {"name": "Golden Isles", "slug": "golden-isles"}, {"name": "Greater Chattanooga", "slug": "greater-chattanooga"}, {"name": "Greater Fort Lauderdale", "slug": "greater-fort-lauderdale"}, {"name": "Greater Huntsville", "slug": "greater-huntsville"}, {"name": "Greater Lake Allatoona", "slug": "greater-lake-allatoona"}, {"name": "Greater Metropolitan Atlanta", "slug": "greater-metropolitan-atlanta"}, {"name": "Greater North Atlanta", "slug": "greater-north-atlanta"}, {"name": "Greater North Central Florida", "slug": "greater-north-central-florida"}, {"name": "Greater Tampa", "slug": "greater-tampa"}, {"name": "Jackson (MS)", "slug": "jackson-ms"}, {"name": "Jackson (TN)", "slug": "jackson-tn"}, {"name": "Jacksonville", "slug": "jacksonville"}, {"name": "Knoxville", "slug": "knoxville"}, {"name": "Lake Spivey", "slug": "lake-spivey"}, {"name": "Macon", "slug": "macon"}, {"name": "Memphis", "slug": "memphis"}, {"name": "Miami", "slug": "miami"}, {"name": "Mississippi Gulf Coast", "slug": "mississippi-gulf-coast"}, {"name": "Mobile", "slug": "mobile"}, {"name": "Montgomery", "slug": "montgomery"}, {"name": "Nashville", "slug": "nashville"}, {"name": "Nature Coast", "slug": "nature-coast"}, {"name": "North Mississippi", "slug": "north-mississippi"}, {"name": "North Suburban Atlanta", "slug": "north-suburban-atlanta"}, {"name": "Orlando", "slug": "orlando"}, {"name": "Palm Beach", "slug": "palm-beach"}, {"name": "Pensacola", "slug": "pensacola"}, {"name": "Savannah", "slug": "savannah"}, {"name": "South Miami", "slug": "south-miami"}, {"name": "Southern Crescent", "slug": "southern-crescent"}, {"name": "Southwest Florida", "slug": "southwest-florida"}, {"name": "Stone Mountain", "slug": "stone-mountain"}, {"name": "Suncoast", "slug": "suncoast"}, {"name": "Tallahassee", "slug": "tallahassee"}, {"name": "Treasure Coast", "slug": "treasure-coast"}, {"name": "Tuscaloosa", "slug": "tuscaloosa"}, {"name": "Tuskegee", "slug": "tuskegee"}, {"name": "Valdosta", "slug": "valdosta"}, {"name": "West Georgia", "slug": "west-georgia"}, {"name": "West Suburban Atlanta", "slug": "west-suburban-atlanta"}, {"name": "Williamson County", "slug": "williamson-county"}];
+    var framed = false;
+    try { framed = window.self !== window.top; } catch (e) { framed = true; }
+    if (framed) document.documentElement.classList.add('embedded');
     var c = new URLSearchParams(location.search).get('c');
-    if (c && CHAPTERS.some(function (x) { return x.slug === c; })) {
+    if (!framed && c && CHAPTERS.some(function (x) { return x.slug === c; })) {
       location.replace('flyers/' + encodeURIComponent(c) + '.pdf');
     }
     window.CHAPTERS = CHAPTERS;
@@ -54,13 +57,14 @@ select {
   border: 2px solid #C9D3E3; border-radius: 10px; padding: 14px 44px 14px 14px; min-height: 52px;
 }
 .select-wrap svg { position: absolute; right: 14px; top: 50%; transform: translateY(-50%); pointer-events: none; color: var(--navy); }
-select:focus-visible, button:focus-visible, a:focus-visible { outline: 3px solid var(--sky); outline-offset: 2px; }
-button {
+select:focus-visible, .btn:focus-visible, a:focus-visible { outline: 3px solid var(--sky); outline-offset: 2px; }
+.btn {
   margin-top: 14px; width: 100%; min-height: 54px; border: 0; border-radius: 10px; cursor: pointer;
+  display: flex; align-items: center; justify-content: center; text-decoration: none;
   font: inherit; font-size: 18px; font-weight: 700; background: var(--berry); color: #FFFFFF;
 }
-button:hover { background: #9E2A5A; }
-button:disabled { background: #B9C2D0; color: #4A5872; cursor: not-allowed; }
+.btn:hover { background: #9E2A5A; }
+.btn[aria-disabled="true"] { background: #B9C2D0; color: #4A5872; cursor: not-allowed; }
 .hint { margin: 12px 0 0; font-size: 14px; line-height: 1.45; color: var(--ink-soft); }
 .error { margin: 12px 0 0; font-size: 15px; font-weight: 600; color: var(--berry); }
 .error[hidden] { display: none; }
@@ -73,8 +77,15 @@ footer { max-width: 960px; margin: 0 auto; padding: 0 20px 32px; font-size: 15px
 @media (min-width: 820px) { footer { padding: 0 32px 48px; } }
 footer strong { color: #FFFFFF; }
 footer a { color: var(--sky); }
+footer p { margin: 0 0 8px; }
+footer .legal { font-size: 13px; }
 footer a:hover { color: var(--pink); }
-@media (prefers-reduced-motion: no-preference) { button { transition: background-color 0.15s; } }
+@media (prefers-reduced-motion: no-preference) { .btn { transition: background-color 0.15s; } }
+/* Inside an iframe: the host page sets the height, so drop full-screen sizing and trim spacing */
+html.embedded body { min-height: 0; padding: 0; }
+html.embedded .wrap { padding-top: 24px; padding-bottom: 28px; }
+@media (min-width: 820px) { html.embedded .wrap { padding-top: 40px; padding-bottom: 36px; } }
+html.embedded footer { padding-bottom: 24px; }
 </style>
 </head>
 <body>
@@ -93,9 +104,9 @@ footer a:hover { color: var(--pink); }
         </select>
         <svg width="18" height="18" viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M4 6l4 4 4-4"></path></svg>
       </div>
-      <button type="submit" id="open" disabled>Open my flyer</button>
+      <a class="btn" id="open" href="#" role="button" aria-disabled="true">Open my flyer</a>
       <p class="error" id="error" role="alert" hidden>We couldn’t find that chapter. Choose it from the list above.</p>
-      <p class="hint">Opens a two-page PDF: front and back. Print it double-sided.</p>
+      <p class="hint" id="hint">Opens a two-page PDF: front and back. Print it double-sided.</p>
     </form>
   </div>
 
@@ -106,6 +117,7 @@ footer a:hover { color: var(--pink); }
 </main>
 <footer>
   <p><strong>Election Day is Tuesday, November 3.</strong> <a href="https://jackandjillinc.org">jackandjillinc.org</a></p>
+  <p class="legal">© 2026 Jack and Jill of America, Inc. All rights reserved.</p>
 </footer>
 <script>
 (function () {
@@ -114,12 +126,42 @@ footer a:hover { color: var(--pink); }
   var err = document.getElementById('error');
   window.CHAPTERS.slice().sort(function (a, b) { return a.name.localeCompare(b.name); })
     .forEach(function (ch) { sel.add(new Option(ch.name, ch.slug)); });
-  sel.addEventListener('change', function () { btn.disabled = !sel.value; err.hidden = true; });
-  document.getElementById('picker').addEventListener('submit', function (e) {
-    e.preventDefault();
-    if (sel.value) location.href = 'flyers/' + encodeURIComponent(sel.value) + '.pdf';
-  });
-  if (new URLSearchParams(location.search).get('c')) err.hidden = false;  // unknown ?c=
+  var framed = document.documentElement.classList.contains('embedded');
+  // In an iframe, open the PDF in a new tab: phones can't page through a PDF shown inside a frame.
+  if (framed) {
+    btn.target = '_blank'; btn.rel = 'noopener';
+    // Other links leave the frame instead of loading a whole site inside it.
+    Array.prototype.forEach.call(document.querySelectorAll('footer a'), function (l) { l.target = '_top'; });
+    document.getElementById('hint').textContent = 'Opens a two-page PDF in a new tab: front and back. Print it double-sided.';
+  }
+  function update() {
+    if (sel.value) {
+      btn.href = 'flyers/' + encodeURIComponent(sel.value) + '.pdf';
+      btn.setAttribute('aria-disabled', 'false');
+    } else {
+      btn.href = '#';
+      btn.setAttribute('aria-disabled', 'true');
+    }
+    err.hidden = true;
+  }
+  sel.addEventListener('change', update);
+  btn.addEventListener('click', function (e) { if (!sel.value) { e.preventDefault(); sel.focus(); } });
+  document.getElementById('picker').addEventListener('submit', function (e) { e.preventDefault(); if (sel.value) btn.click(); });
+  update();
+  if (!framed && new URLSearchParams(location.search).get('c')) err.hidden = false;  // unknown ?c=
+
+  // Tell the host page how tall this page is, so it can size the iframe (see jjoa-embed-snippet.html).
+  if (framed && window.parent) {
+    var last = 0;
+    var send = function () {
+      var h = Math.ceil(document.documentElement.getBoundingClientRect().height);
+      if (h !== last) { last = h; window.parent.postMessage({ type: 'jj-flyer-height', height: h }, '*'); }
+    };
+    if ('ResizeObserver' in window) new ResizeObserver(send).observe(document.documentElement);
+    window.addEventListener('load', send);
+    if (document.fonts && document.fonts.ready) document.fonts.ready.then(send);
+    send();
+  }
 })();
 </script>
 </body>
